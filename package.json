@@ -13,6 +13,7 @@
   },
   "author": "",
   "license": "MIT",
+  
   "babel": {
     "presets": [
       "@babel/preset-env",

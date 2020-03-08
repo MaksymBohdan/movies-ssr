@@ -1,4 +1,5 @@
-const htmlTemplate = (jsx, initialData = {}) => `<!DOCTYPE html>
+const htmlTemplate = (jsx, initialData = {}) =>
+  `<!DOCTYPE html>
       <html>
         <head>
           <title>SSR with RR</title>
