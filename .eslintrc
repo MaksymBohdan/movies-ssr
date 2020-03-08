@@ -1,0 +1,33 @@
+{
+  "parser": "babel-eslint",
+  "ignorePatterns": [
+    "webpack.config.js",
+    "server.js",
+    "bundle.js",
+    "node_modules/"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "plugins": ["react", "import", "prettier", "react-hooks"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/prop-types": 0,
+    "no-console": 1,
+    "arrow-parens": 0,
+    "linebreak-style": ["error", "unix"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": 0,
+    "no-underscore-dangle": 0
+  }
+}
