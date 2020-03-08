@@ -1,17 +1,15 @@
 import fetch from 'isomorphic-fetch';
+import { endpointAll, endpointId } from '../helpers/endpoints';
 
-const URL = (search = 'batman') =>
-  `http://api.tvmaze.com/search/shows?q=${search}`;
-
-const fetchMovies = (movie = 'all') => {
-  return fetch(URL(movie))
+const fetcher = (endpoint, query) =>
+  fetch(endpoint(query))
     .then(data => data.json())
     .then(movies => movies)
     .catch(error => {
       // eslint-disable-next-line no-console
       console.warn(error);
-      return null;
+      return error;
     });
-};
 
-export default fetchMovies;
+export const fetchMovies = query => fetcher(endpointAll, query);
+export const fetchMovieById = id => fetcher(endpointId, id);

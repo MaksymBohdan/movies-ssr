@@ -13,7 +13,6 @@
   },
   "author": "",
   "license": "MIT",
-  
   "babel": {
     "presets": [
       "@babel/preset-env",
@@ -58,6 +57,7 @@
     "cors": "^2.8.5",
     "eslint-config-prettier": "^6.10.0",
     "express": "^4.17.1",
+    "html-react-parser": "^0.10.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

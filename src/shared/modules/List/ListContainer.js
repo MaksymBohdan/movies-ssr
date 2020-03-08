@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getLocalProps from '../../utils';
-import fetchMovies from '../../services';
+import { fetchMovies } from '../../services';
 import ListView from './ListView';
 
 const ListContainer = props => {
