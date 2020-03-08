@@ -6,6 +6,8 @@ export const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+  margin: 0;
 `;
 
 export const StyleForm = styled.form`
