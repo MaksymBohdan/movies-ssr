@@ -7,7 +7,7 @@ Example: Clone down this repository. You will need node and npm installed global
 npm install
 
 ## To Start Project:
-npm run build
+npm run build <br/>
 npm run server
 
 ## To Visit App:
