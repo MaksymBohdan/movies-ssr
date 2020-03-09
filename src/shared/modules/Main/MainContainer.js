@@ -9,7 +9,6 @@ const MainContainer = props => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // to prevent showing comp with no css
     setIsLoading(false);
   }, []);
 

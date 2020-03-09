@@ -1,10 +1,12 @@
 import React from 'react';
+import loadable from '@loadable/component';
 import { Route, Switch } from 'react-router-dom';
-import MainContainer from '../modules/Main/MainContainer';
-import ListContainer from '../modules/List/ListContainer';
-import ItemContainer from '../modules/Item/ItemContainer';
-import NotFound from './NotFound';
 import * as ROUTES from '../helpers/constants';
+
+const MainContainer = loadable(() => import('./../modules/Main/MainContainer'));
+const ListContainer = loadable(() => import('./../modules/List/ListContainer'));
+const ItemContainer = loadable(() => import('./../modules/Item/ItemContainer'));
+const NotFound = loadable(() => import('./NotFound'));
 
 const App = () => {
   return (

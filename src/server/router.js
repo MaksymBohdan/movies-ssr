@@ -10,12 +10,11 @@ const router = express.Router();
 
 router
   .get(ROUTES.MAIN, (req, res) => {
-    const isLoading = false;
     const jsx = renderToString(
-      <ServerRouter location={ROUTES.MAIN} context={{ data: isLoading }} />,
+      <ServerRouter location={ROUTES.MAIN} context={{}} />,
     );
 
-    return res.send(htmlTemplate(jsx, { data: isLoading }));
+    return res.send(htmlTemplate(jsx));
   })
   .get(ROUTES.LIST, async (req, res) => {
     const { dynamic } = req.params;
