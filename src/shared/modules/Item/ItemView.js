@@ -8,14 +8,15 @@ const ItemView = ({ item, loading }) => {
 
   return (
     <Loader isLoading={loading}>
-      {item && Object.keys(item).length > 0 ? (
+      {item && Object.keys(item).length === 0 && (
+        <h1>There is nothing to show</h1>
+      )}
+      {item && (
         <ItemWrapper>
           <Lable>Name: {name}</Lable>
           <img alt="logo" src={image && image.medium} />
           <div>Summary: {parse(summary)}</div>
         </ItemWrapper>
-      ) : (
-        <h1>There is nothing to show</h1>
       )}
     </Loader>
   );

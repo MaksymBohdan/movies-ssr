@@ -2,11 +2,9 @@
   "name": "movies-ssr",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel watch:build watch:server",
-    "watch:build": "webpack --watch --mode development",
-    "watch:server": "nodemon \"./server.js\" --watch \"./ \"",
+    "build": "webpack --watch --mode development",
+    "server": "nodemon \"./public/server.js\" --watch \"./ \"",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint src/**/*.{js,jsx}",
     "lint:fix": "eslint src/**/*.{js,jsx} --fix"
@@ -53,6 +51,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@loadable/component": "^5.12.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "eslint-config-prettier": "^6.10.0",
