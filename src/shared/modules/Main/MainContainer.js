@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainView from './MainView';
 import { LIST_STATIC } from '../../helpers/constants';
+import Loader from '../../components/Loader';
 
-const MainContainer = ({ history }) => {
+const MainContainer = props => {
+  const { history } = props;
   const [value, setValue] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // to prevent showing comp with no css
+    setIsLoading(false);
+  }, []);
 
   const handleChange = e => setValue(e.target.value);
   const handleSubmit = e => {
@@ -12,7 +20,9 @@ const MainContainer = ({ history }) => {
   };
 
   return (
-    <MainView onChange={handleChange} onSubmit={handleSubmit} value={value} />
+    <Loader isLoading={isLoading}>
+      <MainView onChange={handleChange} onSubmit={handleSubmit} value={value} />
+    </Loader>
   );
 };
 

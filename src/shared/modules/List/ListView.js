@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader';
-import ErrorHandler from '../../components/ErrorHandler';
 import { ITEM_STATIC } from '../../helpers/constants';
 import { StyledList, StyledItem, StyledGenres } from './styles';
 
-const ListView = ({ list, error }) => (
-  <ErrorHandler isError={error}>
-    <Loader isLoading={!list.length}>
-      <StyledList>
-        {list.map(
+const ListView = ({ list, loading }) => (
+  <Loader isLoading={loading}>
+    <StyledList>
+      {list && list.length > 0 ? (
+        list.map(
           ({
             show: {
               id,
@@ -31,10 +30,12 @@ const ListView = ({ list, error }) => (
               </StyledItem>
             </Link>
           ),
-        )}
-      </StyledList>
-    </Loader>
-  </ErrorHandler>
+        )
+      ) : (
+        <h1>there is nothing to show</h1>
+      )}
+    </StyledList>
+  </Loader>
 );
 
 export default ListView;

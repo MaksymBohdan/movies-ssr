@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import getLocalProps from '../../utils';
+import React from 'react';
 import { fetchMovies } from '../../services';
 import ListView from './ListView';
+import useFetch from '../../hooks/useFetch';
 
 const ListContainer = props => {
-  const [list, setList] = useState([]);
-  const [error, setError] = useState(false);
+  const {
+    match: {
+      params: { dynamic },
+    },
+    staticContext,
+  } = props;
 
-  const fetchDataFromClient = async ({ dynamic }) => {
-    try {
-      const data = await fetchMovies(dynamic);
-      setList(data);
-    } catch (err) {
-      setError(true);
-    }
-  };
+  const [data, loading] = useFetch(dynamic, staticContext, fetchMovies);
 
-  useEffect(() => {
-    const data = getLocalProps(props);
-
-    if (data) setList(data);
-    if (!data) fetchDataFromClient(props.match.params);
-  }, [props]);
-
-  return <ListView error={error} list={list} />;
+  return <ListView error={false} loading={loading} list={data} />;
 };
 
 export default ListContainer;

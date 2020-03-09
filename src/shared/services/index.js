@@ -7,7 +7,7 @@ const fetcher = (endpoint, query) =>
     .then(movies => movies)
     .catch(error => {
       // eslint-disable-next-line no-console
-      console.warn(error);
+      console.error(error);
       return error;
     });
 
