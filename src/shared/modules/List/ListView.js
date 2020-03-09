@@ -7,7 +7,8 @@ import { StyledList, StyledItem, StyledGenres } from './styles';
 const ListView = ({ list, loading }) => (
   <Loader isLoading={loading}>
     <StyledList>
-      {list && list.length > 0 ? (
+      {list && list.length === 0 && <h1>There is nothing to show</h1>}
+      {list &&
         list.map(
           ({
             show: {
@@ -30,10 +31,7 @@ const ListView = ({ list, loading }) => (
               </StyledItem>
             </Link>
           ),
-        )
-      ) : (
-        <h1>there is nothing to show</h1>
-      )}
+        )}
     </StyledList>
   </Loader>
 );
